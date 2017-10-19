@@ -1,1 +1,1 @@
-include ':app', ':orm-library', ':evernote-sdk'
+include ':app', ':orm-library', ':evernote-sdk', ':md-preference'
