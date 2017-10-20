@@ -3,6 +3,7 @@ package com.example.jh.note.mvp.views.impl;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.jh.note.model.SNote;
 import com.example.jh.note.mvp.views.View;
 
 import java.util.List;
@@ -18,10 +19,10 @@ public interface MainView extends View {
     void initDrawerView(List<String> list);
     void setToolbarTitle(String title);
     void showProgressWheel(boolean visible);
-//    void switchNoteTypePage(List<SNote> notes);
-//    void addNote(SNote note);
-//    void updateNote(SNote note);
-//    void removeNote(SNote note);
+    void switchNoteTypePage(List<SNote> notes);
+    void addNote(SNote note);
+    void updateNote(SNote note);
+    void removeNote(SNote note);
     void scrollRecyclerViewToTop();
     void setDrawerItemChecked(int position);
     boolean isDrawerOpen();
@@ -34,10 +35,10 @@ public interface MainView extends View {
     boolean isRefreshing();
     void enableSwipeRefreshLayout(boolean enable);
     void setLayoutManager(RecyclerView.LayoutManager manager);
-//    void initRecyclerView(List<SNote> notes);
-//    void showTrashPopupMenu(android.view.View view, SNote note);
-//    void showNormalPopupMenu(android.view.View view, SNote note);
-//    void showDeleteForeverDialog(SNote note);
+    void initRecyclerView(List<SNote> notes);
+    void showTrashPopupMenu(android.view.View view, SNote note);
+    void showNormalPopupMenu(android.view.View view, SNote note);
+    void showDeleteForeverDialog(SNote note);
     void showSnackbar(@StringRes int message);
     void showGoBindEverNoteSnackbar(@StringRes int message, @StringRes int action);
     void moveTaskToBack();

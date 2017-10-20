@@ -1,25 +1,73 @@
 package com.example.jh.note.ui;
 
 import android.support.annotation.StringRes;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
 
 import com.example.jh.note.R;
+import com.example.jh.note.adapter.NotesAdapter;
+import com.example.jh.note.model.SNote;
+import com.example.jh.note.mvp.presenters.impl.MainPresenter;
 import com.example.jh.note.mvp.views.impl.MainView;
+import com.example.jh.note.view.BetterFab;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import butterknife.Bind;
+
 /**
  * 笔记项目 2017-10-18
+ * 每一个点做到亲力亲为。
  */
 public class MainActivity extends BaseActivity implements MainView {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
+    @Bind(R.id.refresher)
+    SwipeRefreshLayout refreshLayout;
+    @Bind(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @Bind(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+    @Bind(R.id.left_drawer_listview)
+    ListView mDrawerMenuListView;
+    @Bind(R.id.left_drawer)
+    View drawerRootView;
+    @Bind(R.id.fab)
+    BetterFab fab;
+    @Bind(R.id.coordinator_layout)
+    CoordinatorLayout coordinatorLayout;
+    @Bind(R.id.progress_wheel)
+    ProgressWheel progressWheel;
+    @Inject
+    MainPresenter mainPresenter;
+    private ActionBarDrawerToggle mDrawerToggle;
+    private NotesAdapter recyclerAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
+
+    @Override
+    protected int getLayoutView() {
+        return R.layout.activity_main;
+    }
+
 
     @Override
     public void initToolbar() {
@@ -38,6 +86,26 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void showProgressWheel(boolean visible) {
+
+    }
+
+    @Override
+    public void switchNoteTypePage(List<SNote> notes) {
+
+    }
+
+    @Override
+    public void addNote(SNote note) {
+
+    }
+
+    @Override
+    public void updateNote(SNote note) {
+
+    }
+
+    @Override
+    public void removeNote(SNote note) {
 
     }
 
@@ -98,6 +166,26 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     public void setLayoutManager(RecyclerView.LayoutManager manager) {
+
+    }
+
+    @Override
+    public void initRecyclerView(List<SNote> notes) {
+
+    }
+
+    @Override
+    public void showTrashPopupMenu(View view, SNote note) {
+
+    }
+
+    @Override
+    public void showNormalPopupMenu(View view, SNote note) {
+
+    }
+
+    @Override
+    public void showDeleteForeverDialog(SNote note) {
 
     }
 
